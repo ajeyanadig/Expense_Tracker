@@ -13,30 +13,29 @@ ReactModal.setAppElement("#root");
 function App() {
   const { enqueueSnackbar } = useSnackbar();
 
-  // let [transData, setTransData] = useState([
-  //   {
-  //     id: Date.now() + Math.trunc(Math.random() * 100),
-  //     name: "Samosa",
-  //     category: "Food",
-  //     date: "2025-03-15",
-  //     price: 150,
-  //   },
-  //   {
-  //     id: Date.now() + Math.trunc(Math.random() * 100),
-  //     name: "Movie",
-  //     category: "Entertainment",
-  //     date: "2025-03-15",
-  //     price: 300,
-  //   },
-  //   {
-  //     id: Date.now() + Math.trunc(Math.random() * 100),
-  //     name: "Auto",
-  //     category: "Travel",
-  //     date: "2025-03-15",
-  //     price: 50,
-  //   },
-  // ]);
-  let [transData, setTransData] = useState([]);
+  let [transData, setTransData] = useState([
+    {
+      id: Date.now() + Math.trunc(Math.random() * 100),
+      name: "Samosa",
+      category: "Food",
+      date: "2025-03-15",
+      price: 150,
+    },
+    {
+      id: Date.now() + Math.trunc(Math.random() * 100),
+      name: "Movie",
+      category: "Entertainment",
+      date: "2025-03-15",
+      price: 300,
+    },
+    {
+      id: Date.now() + Math.trunc(Math.random() * 100),
+      name: "Auto",
+      category: "Travel",
+      date: "2025-03-15",
+      price: 50,
+    },
+  ]);
 
   let expenses = transData.reduce((acc, curr) => {
     return acc + curr.price;
@@ -49,9 +48,7 @@ function App() {
 
   useEffect(() => {
     const storedData = localStorage.getItem("transData");
-    if (storedData) {
-      setTransData(JSON.parse(storedData));
-    }
+    setTransData(JSON.parse(storedData));
   }, []);
   useEffect(() => {
     localStorage.setItem("transData", JSON.stringify(transData));
@@ -99,15 +96,8 @@ function App() {
     handleOpenExpense();
   }
   function handleExpenseAddition(e) {
+    if (Number(e.target[1].value > wallet)) return;
     e.preventDefault();
-    if (Number(e.target[1].value > wallet)) {
-      handleCloseExpense();
-      enqueueSnackbar("Insufficient funds", {
-        variant: "warning",
-      });
-      return;
-    }
-
     console.log(e);
     let [day, month, year] = e.target[3].value.split("/");
     let dateStr = `${year}-${month}-${day}`;
@@ -138,7 +128,7 @@ function App() {
   function editTransaction(e) {
     e.preventDefault();
 
-    let [year, month, day] = e.target[3].value.split("-");
+    let [day, month, year] = e.target[3].value.split("/");
     let dateStr = `${year}-${month}-${day}`;
     let newObj = {
       name: e.target[0].value,
@@ -183,9 +173,8 @@ function App() {
         <h2 style={{ marginBottom: "20px" }}>Add Balance</h2>
         <form onSubmit={handleIncomeAddition}>
           <input
-            required
             type="number"
-            placeholder="Income Amount"
+            placeholder="  Income Amount"
             style={{
               width: "217px",
               height: "40px",
@@ -257,8 +246,6 @@ function App() {
             }}
           >
             <input
-              name="title"
-              required
               placeholder="  Title"
               style={{
                 width: "217px",
@@ -271,8 +258,6 @@ function App() {
               }}
             />
             <input
-              name="price"
-              required
               placeholder="  Price"
               style={{
                 width: "217px",
@@ -285,8 +270,6 @@ function App() {
               }}
             />
             <select
-              name="category"
-              required
               placeholder="  Select Category"
               style={{
                 width: "217px",
@@ -298,15 +281,12 @@ function App() {
                 justifySelf: "center",
               }}
             >
-              <option>Select Category</option>
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Entertainment">Entertainment</option>
             </select>
             <input
-              name="date"
-              required
-              placeholder="  yyyy-mm-dd"
+              placeholder="  dd/mm/yyy"
               style={{
                 width: "217px",
                 height: "40px",
@@ -333,7 +313,7 @@ function App() {
                 justifySelf: "center",
               }}
             >
-              Add Expense
+              Add Balance
             </button>
             <button
               onClick={handleCloseExpense}
@@ -385,8 +365,6 @@ function App() {
             }}
           >
             <input
-              name="title"
-              required
               placeholder="  Title"
               style={{
                 width: "217px",
@@ -399,8 +377,6 @@ function App() {
               }}
             />
             <input
-              name="price"
-              required
               placeholder="  Price"
               style={{
                 width: "217px",
@@ -413,8 +389,6 @@ function App() {
               }}
             />
             <select
-              name="category"
-              required
               placeholder="  Select Category"
               style={{
                 width: "217px",
@@ -426,14 +400,11 @@ function App() {
                 justifySelf: "center",
               }}
             >
-              <option>Select Category</option>
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Entertainment">Entertainment</option>
             </select>
             <input
-              name="date"
-              required
               placeholder="  dd/mm/yyy"
               style={{
                 width: "217px",
