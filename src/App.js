@@ -48,7 +48,9 @@ function App() {
 
   useEffect(() => {
     const storedData = localStorage.getItem("transData");
-    setTransData(JSON.parse(storedData));
+    if (storedData) {
+      setTransData(JSON.parse(storedData));
+    }
   }, []);
   useEffect(() => {
     localStorage.setItem("transData", JSON.stringify(transData));
