@@ -333,7 +333,7 @@ function App() {
                 justifySelf: "center",
               }}
             >
-              Add Balance
+              Add Expense
             </button>
             <button
               onClick={handleCloseExpense}
