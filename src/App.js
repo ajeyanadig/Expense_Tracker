@@ -110,8 +110,9 @@ function App() {
       category: e.target[2].value,
       date: dateStr,
     };
-    setTransData([...transData, expenseObj]);
     handleCloseExpense();
+    setTransData([...transData, expenseObj]);
+
     enqueueSnackbar("Expense added", {
       variant: "success",
     });
@@ -176,6 +177,7 @@ function App() {
         <form onSubmit={handleIncomeAddition}>
           <input
             type="number"
+            required
             placeholder="  Income Amount"
             style={{
               width: "217px",
@@ -249,6 +251,7 @@ function App() {
           >
             <input
               name="title"
+              required
               placeholder="  Title"
               style={{
                 width: "217px",
@@ -262,6 +265,7 @@ function App() {
             />
             <input
               name="price"
+              required
               placeholder="  Price"
               style={{
                 width: "217px",
@@ -275,6 +279,7 @@ function App() {
             />
             <select
               name="category"
+              required
               placeholder="  Select Category"
               style={{
                 width: "217px",
@@ -292,6 +297,7 @@ function App() {
             </select>
             <input
               name="date"
+              required
               placeholder="  dd/mm/yyy"
               style={{
                 width: "217px",
@@ -361,6 +367,7 @@ function App() {
         <form
           onSubmit={(e) => {
             editTransaction(e);
+            handleCloseEditExpense();
           }}
         >
           <div
@@ -371,6 +378,7 @@ function App() {
             }}
           >
             <input
+              required
               placeholder="  Title"
               style={{
                 width: "217px",
@@ -383,6 +391,7 @@ function App() {
               }}
             />
             <input
+              required
               placeholder="  Price"
               style={{
                 width: "217px",
@@ -395,6 +404,7 @@ function App() {
               }}
             />
             <select
+              required
               placeholder="  Select Category"
               style={{
                 width: "217px",
@@ -411,6 +421,7 @@ function App() {
               <option value="Entertainment">Entertainment</option>
             </select>
             <input
+              required
               placeholder="  dd/mm/yyy"
               style={{
                 width: "217px",
