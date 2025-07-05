@@ -48,13 +48,13 @@ function App() {
   let [editId, setEditId] = useState(0);
 
   useEffect(() => {
-    const storedData = JSON.parse(localStorage.getItem("transData"));
+    const storedData = JSON.parse(localStorage.getItem("expenses"));
     if (Array.isArray(storedData)) {
       setTransData(storedData);
     }
   }, []);
   useEffect(() => {
-    localStorage.setItem("transData", JSON.stringify(transData));
+    localStorage.setItem("expenses", JSON.stringify(transData));
   }, [transData]);
   useEffect(() => {
     let expenses = transData.reduce((acc, curr) => {
@@ -480,7 +480,7 @@ function App() {
         <PiChart transData={transData} />
       </div>
       <h2>
-        <em>Transactions</em>
+        <em>Transaction</em>
       </h2>
       <div className="mygrid">
         <RecentTransactions
