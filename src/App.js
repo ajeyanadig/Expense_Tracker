@@ -176,9 +176,9 @@ function App() {
         <h2 style={{ marginBottom: "20px" }}>Add Balance</h2>
         <form onSubmit={handleIncomeAddition}>
           <input
-            type="number"
             required
-            placeholder="  Income Amount"
+            type="number"
+            placeholder="Income Amount"
             style={{
               width: "217px",
               height: "40px",
