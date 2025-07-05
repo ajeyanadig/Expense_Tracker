@@ -13,33 +13,34 @@ ReactModal.setAppElement("#root");
 function App() {
   const { enqueueSnackbar } = useSnackbar();
 
-  let [transData, setTransData] = useState([
-    {
-      id: Date.now() + Math.trunc(Math.random() * 100),
-      name: "Samosa",
-      category: "Food",
-      date: "2025-03-15",
-      price: 150,
-    },
-    {
-      id: Date.now() + Math.trunc(Math.random() * 100),
-      name: "Movie",
-      category: "Entertainment",
-      date: "2025-03-15",
-      price: 300,
-    },
-    {
-      id: Date.now() + Math.trunc(Math.random() * 100),
-      name: "Auto",
-      category: "Travel",
-      date: "2025-03-15",
-      price: 50,
-    },
-  ]);
-
+  // let [transData, setTransData] = useState([
+  //   {
+  //     id: Date.now() + Math.trunc(Math.random() * 100),
+  //     name: "Samosa",
+  //     category: "Food",
+  //     date: "2025-03-15",
+  //     price: 150,
+  //   },
+  //   {
+  //     id: Date.now() + Math.trunc(Math.random() * 100),
+  //     name: "Movie",
+  //     category: "Entertainment",
+  //     date: "2025-03-15",
+  //     price: 300,
+  //   },
+  //   {
+  //     id: Date.now() + Math.trunc(Math.random() * 100),
+  //     name: "Auto",
+  //     category: "Travel",
+  //     date: "2025-03-15",
+  //     price: 50,
+  //   },
+  // ]);
+  let [transData, setTransData] = useState([]);
   let expenses = transData.reduce((acc, curr) => {
     return acc + curr.price;
   }, 0);
+
   let [wallet, setWallet] = useState(5000 - expenses);
   let [open1, setOpen1] = useState(false);
   let [open2, setOpen2] = useState(false);
