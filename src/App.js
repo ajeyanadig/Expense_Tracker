@@ -298,6 +298,7 @@ function App() {
                 justifySelf: "center",
               }}
             >
+              <option>Select Category</option>
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Entertainment">Entertainment</option>
@@ -425,6 +426,7 @@ function App() {
                 justifySelf: "center",
               }}
             >
+              <option>Select Category</option>
               <option value="Food">Food</option>
               <option value="Travel">Travel</option>
               <option value="Entertainment">Entertainment</option>
