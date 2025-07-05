@@ -7,7 +7,7 @@ function Expenses({ value, handleAddExpense }) {
         onClick={handleAddExpense}
         className="addExpense"
       >
-        +Add Expense
+        + Add Expense
       </button>
     </div>
   );

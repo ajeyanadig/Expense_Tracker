@@ -7,7 +7,7 @@ function Wallet({ value, handleAddIncome }) {
         onClick={handleAddIncome}
         style={{ cursor: "pointer" }}
       >
-        +Add Income
+        + Add Income
       </button>
     </div>
   );

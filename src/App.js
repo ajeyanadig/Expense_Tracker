@@ -13,29 +13,30 @@ ReactModal.setAppElement("#root");
 function App() {
   const { enqueueSnackbar } = useSnackbar();
 
-  let [transData, setTransData] = useState([
-    {
-      id: Date.now() + Math.trunc(Math.random() * 100),
-      name: "Samosa",
-      category: "Food",
-      date: "2025-03-15",
-      price: 150,
-    },
-    {
-      id: Date.now() + Math.trunc(Math.random() * 100),
-      name: "Movie",
-      category: "Entertainment",
-      date: "2025-03-15",
-      price: 300,
-    },
-    {
-      id: Date.now() + Math.trunc(Math.random() * 100),
-      name: "Auto",
-      category: "Travel",
-      date: "2025-03-15",
-      price: 50,
-    },
-  ]);
+  // let [transData, setTransData] = useState([
+  //   {
+  //     id: Date.now() + Math.trunc(Math.random() * 100),
+  //     name: "Samosa",
+  //     category: "Food",
+  //     date: "2025-03-15",
+  //     price: 150,
+  //   },
+  //   {
+  //     id: Date.now() + Math.trunc(Math.random() * 100),
+  //     name: "Movie",
+  //     category: "Entertainment",
+  //     date: "2025-03-15",
+  //     price: 300,
+  //   },
+  //   {
+  //     id: Date.now() + Math.trunc(Math.random() * 100),
+  //     name: "Auto",
+  //     category: "Travel",
+  //     date: "2025-03-15",
+  //     price: 50,
+  //   },
+  // ]);
+  let [transData, setTransData] = useState([]);
 
   let expenses = transData.reduce((acc, curr) => {
     return acc + curr.price;
@@ -137,7 +138,7 @@ function App() {
   function editTransaction(e) {
     e.preventDefault();
 
-    let [day, month, year] = e.target[3].value.split("/");
+    let [year, month, day] = e.target[3].value.split("-");
     let dateStr = `${year}-${month}-${day}`;
     let newObj = {
       name: e.target[0].value,
@@ -184,7 +185,7 @@ function App() {
           <input
             required
             type="number"
-            placeholder="  Income Amount"
+            placeholder="Income Amount"
             style={{
               width: "217px",
               height: "40px",
@@ -256,6 +257,7 @@ function App() {
             }}
           >
             <input
+              name="title"
               required
               placeholder="  Title"
               style={{
@@ -269,6 +271,7 @@ function App() {
               }}
             />
             <input
+              name="price"
               required
               placeholder="  Price"
               style={{
@@ -282,6 +285,7 @@ function App() {
               }}
             />
             <select
+              name="category"
               required
               placeholder="  Select Category"
               style={{
@@ -299,8 +303,9 @@ function App() {
               <option value="Entertainment">Entertainment</option>
             </select>
             <input
+              name="date"
               required
-              placeholder="  dd/mm/yyy"
+              placeholder="  yyyy-mm-dd"
               style={{
                 width: "217px",
                 height: "40px",
@@ -379,6 +384,7 @@ function App() {
             }}
           >
             <input
+              name="title"
               required
               placeholder="  Title"
               style={{
@@ -392,6 +398,7 @@ function App() {
               }}
             />
             <input
+              name="price"
               required
               placeholder="  Price"
               style={{
@@ -405,6 +412,7 @@ function App() {
               }}
             />
             <select
+              name="category"
               required
               placeholder="  Select Category"
               style={{
@@ -422,6 +430,7 @@ function App() {
               <option value="Entertainment">Entertainment</option>
             </select>
             <input
+              name="date"
               required
               placeholder="  dd/mm/yyy"
               style={{
