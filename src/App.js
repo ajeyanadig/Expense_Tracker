@@ -480,7 +480,7 @@ function App() {
         <PiChart transData={transData} />
       </div>
       <h2>
-        <em>Transaction</em>
+        <em>Transactions</em>
       </h2>
       <div className="mygrid">
         <RecentTransactions
