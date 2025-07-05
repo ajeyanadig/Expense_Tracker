@@ -41,10 +41,12 @@
   align-items: center;
   font-size: 16px;
   font-weight: 700;
+  color: white;
+  border: none;
 }
 .addExpense {
   background: linear-gradient(90deg, #ff9595 0%, #ff4747 80%, #ff3838 100%);
-
+  border: none;
   width: 168px;
   height: 38px;
   border-radius: 15px;
@@ -53,6 +55,7 @@
   align-items: center;
   font-size: 16px;
   font-weight: 700;
+  color: white;
 }
 .mygrid {
   display: grid;
