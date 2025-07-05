@@ -47,8 +47,10 @@ function App() {
   let [editId, setEditId] = useState(0);
 
   useEffect(() => {
-    const storedData = localStorage.getItem("transData");
-    setTransData(JSON.parse(storedData));
+    const storedData = JSON.parse(localStorage.getItem("transData"));
+    if (Array.isArray(storedData)) {
+      setTransData(storedData);
+    }
   }, []);
   useEffect(() => {
     localStorage.setItem("transData", JSON.stringify(transData));
@@ -246,6 +248,7 @@ function App() {
             }}
           >
             <input
+              name="title"
               placeholder="  Title"
               style={{
                 width: "217px",
@@ -258,6 +261,7 @@ function App() {
               }}
             />
             <input
+              name="price"
               placeholder="  Price"
               style={{
                 width: "217px",
@@ -270,6 +274,7 @@ function App() {
               }}
             />
             <select
+              name="category"
               placeholder="  Select Category"
               style={{
                 width: "217px",
@@ -286,6 +291,7 @@ function App() {
               <option value="Entertainment">Entertainment</option>
             </select>
             <input
+              name="date"
               placeholder="  dd/mm/yyy"
               style={{
                 width: "217px",
@@ -313,7 +319,7 @@ function App() {
                 justifySelf: "center",
               }}
             >
-              Add Balance
+              Add Expense
             </button>
             <button
               onClick={handleCloseExpense}

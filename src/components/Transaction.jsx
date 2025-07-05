@@ -43,7 +43,7 @@ function Transaction({
   };
 
   return (
-    <div className="transaction">
+    <section className="transaction">
       <div className="left">
         <span>{iconObj[category]}</span>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -98,7 +98,7 @@ function Transaction({
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
