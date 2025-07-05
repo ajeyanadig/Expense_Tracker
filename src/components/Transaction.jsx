@@ -28,7 +28,7 @@ function Transaction({
 }) {
   function buildDateString(dateStr) {
     let date = new Date(dateStr);
-    let month = months[date.getMonth()];
+    let month = months[date.getMonth() - 1];
     let year = date.getFullYear();
     let day = date.getDate();
 

@@ -1,7 +1,7 @@
 function Wallet({ value, handleAddIncome }) {
   return (
     <div className="card">
-      <p>Wallet Balance: {value}</p>
+      <p>Wallet Balance : {value}</p>
       <button
         className="addIncome"
         onClick={handleAddIncome}
