@@ -299,7 +299,7 @@ function App() {
             <input
               name="date"
               required
-              placeholder="  dd/mm/yyy"
+              placeholder="yyyy-mm-dd"
               style={{
                 width: "217px",
                 height: "40px",
@@ -480,7 +480,7 @@ function App() {
         <PiChart transData={transData} />
       </div>
       <h2>
-        <em>Recent Transaction</em>
+        <em>Transaction</em>
       </h2>
       <div className="mygrid">
         <RecentTransactions
